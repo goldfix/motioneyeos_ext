@@ -1,0 +1,65 @@
+#!/bin/bash 
+
+set -e -o pipefail
+PROG="/usr/bin/tailscaled"
+PROG_TMP="/tmp/tailscale.tgz"
+PROG_TMP_FOLDER="/tmp/tailscale"
+PROG_URL="https://pkgs.tailscale.com/stable/tailscale_1.14.3_arm.tgz"
+PROG_URL="https://www.dropbox.com/s/4835ahn8rv0glyd/tailscale_1.14.3_arm.tgz?dl=1"
+
+if [ -f "${PROG}" ]; 
+then
+    echo "$PROG exists."
+else 
+    echo "$PROG does not exist."
+    mount -o remount,rw /
+    mount -o remount,rw /boot
+    cd /tmp
+    curl -L ${PROG_URL} --output ${PROG_TMP}
+    tar xvf ${PROG_TMP}
+    mv /tmp/tailscale_1.14.3_arm ${PROG_TMP_FOLDER}
+    cp -a ${PROG_TMP_FOLDER}/tailscale* /usr/bin/
+    rm -rf ${PROG_TMP_FOLDER}
+    rm ${PROG_TMP}
+    rmmod tun
+    modprobe tun
+fi
+
+test -f ${PROG} || exit 0
+test -n "${OS_VERSION}" || source /etc/init.d/base
+
+start() {
+    msg_begin "Starting tailscale"
+    ${PROG} --state=/usr/bin/tailscaled.state &
+    test $? == 0 && msg_done || msg_fail
+    return 0
+}
+
+stop() {
+    msg_begin "Stopping tailscale"
+    killall -q $(basename ${PROG})
+    msg_done
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+
+    stop)
+        stop
+        ;;
+    
+    restart)
+        stop
+        start
+        ;;
+
+    *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+        ;;
+esac
+
+exit $?
+
