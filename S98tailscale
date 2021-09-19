@@ -4,29 +4,38 @@ set -e -o pipefail
 PROG="/usr/bin/tailscaled"
 PROG_TMP="/tmp/tailscale.tgz"
 PROG_TMP_FOLDER="/tmp/tailscale"
+FORCE_INIT="0"
 PROG_URL="https://pkgs.tailscale.com/stable/tailscale_1.14.3_arm.tgz"
+
+#To be remove...
 PROG_URL="https://www.dropbox.com/s/4835ahn8rv0glyd/tailscale_1.14.3_arm.tgz?dl=1"
 
-if [ -f "${PROG}" ]; 
-then
-    echo "$PROG exists."
-else 
-    echo "$PROG does not exist."
-    mount -o remount,rw /
-    mount -o remount,rw /boot
-    cd /tmp
-    curl -L ${PROG_URL} --output ${PROG_TMP}
-    tar xvf ${PROG_TMP}
-    mv /tmp/tailscale_1.14.3_arm ${PROG_TMP_FOLDER}
-    cp -a ${PROG_TMP_FOLDER}/tailscale* /usr/bin/
-    rm -rf ${PROG_TMP_FOLDER}
-    rm ${PROG_TMP}
-    rmmod tun
-    modprobe tun
-fi
-
-test -f ${PROG} || exit 0
 test -n "${OS_VERSION}" || source /etc/init.d/base
+	
+init() {
+    if [ -f "${PROG}" ] && [ "${FORCE_INIT}" == "0" ]; 
+    then
+        echo "$PROG exists."
+    else 
+        echo "$PROG does not exist."
+        mount -o remount,rw /
+        mount -o remount,rw /boot
+		
+		rm -rf /usr/bin/tailscale*
+        cd /tmp
+        curl -L ${PROG_URL} --output ${PROG_TMP}
+        tar xvf ${PROG_TMP}
+        mv /tmp/tailscale_1.14.3_arm ${PROG_TMP_FOLDER}
+        cp -a ${PROG_TMP_FOLDER}/tailscale* /usr/bin/
+        rm -rf ${PROG_TMP_FOLDER}
+        rm ${PROG_TMP}
+        rmmod tun
+        modprobe tun
+    
+        chmod ugo+rx /tmp/S98tailscale
+        cp -a /tmp/S98tailscale /etc/init.d/
+    fi
+}
 
 start() {
     msg_begin "Starting tailscale"
@@ -43,6 +52,7 @@ stop() {
 
 case "$1" in
     start)
+	    init
         start
         ;;
 
@@ -55,8 +65,12 @@ case "$1" in
         start
         ;;
 
+    init)
+	    FORCE_INIT="1"
+        init
+        ;;
     *)
-        echo "Usage: $0 {start|stop|restart}"
+        echo "Usage: $0 {start|stop|restart|init}"
         exit 1
         ;;
 esac
