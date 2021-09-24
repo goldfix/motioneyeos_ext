@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 
 set -e -o pipefail
 PROG="/usr/bin/tailscaled"
@@ -11,27 +11,27 @@ PROG_URL="https://pkgs.tailscale.com/stable/tailscale_1.14.3_arm.tgz"
 PROG_URL="https://www.dropbox.com/s/4835ahn8rv0glyd/tailscale_1.14.3_arm.tgz?dl=1"
 
 test -n "${OS_VERSION}" || source /etc/init.d/base
-	
-init() {
-    if [ -f "${PROG}" ] && [ "${FORCE_INIT}" == "0" ]; 
+
+install() {
+    if [ -f "${PROG}" ] && [ "${FORCE_INIT}" == "0" ];
     then
-        echo "$PROG exists."
-    else 
-        echo "$PROG does not exist."
+        /bin/true
+    else
         mount -o remount,rw /
         mount -o remount,rw /boot
-		
-		rm -rf /usr/bin/tailscale*
+
+        rm -rf /usr/bin/tailscale*
+        rm -rf /tmp/tailscale*
         cd /tmp
         curl -L ${PROG_URL} --output ${PROG_TMP}
         tar xvf ${PROG_TMP}
         mv /tmp/tailscale_1.14.3_arm ${PROG_TMP_FOLDER}
-        cp -a ${PROG_TMP_FOLDER}/tailscale* /usr/bin/
-        rm -rf ${PROG_TMP_FOLDER}
-        rm ${PROG_TMP}
-        rmmod tun
-        modprobe tun
-    
+        cp ${PROG_TMP_FOLDER}/tailscale /usr/bin/
+        cp ${PROG_TMP_FOLDER}/tailscaled /usr/bin/
+        rm -rf /tmp/tailscale*
+        # rmmod tun
+        # modprobe tun
+
         chmod ugo+rx /tmp/S98tailscale
         cp -a /tmp/S98tailscale /etc/init.d/
     fi
@@ -39,7 +39,8 @@ init() {
 
 start() {
     msg_begin "Starting tailscale"
-    ${PROG} --state=/usr/bin/tailscaled.state &
+    modprobe tun
+    ${PROG} --state=/usr/bin/tailscaled.state > /tmp/tailscaled.log 2>&1 &
     test $? == 0 && msg_done || msg_fail
     return 0
 }
@@ -52,28 +53,27 @@ stop() {
 
 case "$1" in
     start)
-	    init
+        install
         start
         ;;
 
     stop)
         stop
         ;;
-    
+
     restart)
         stop
         start
         ;;
 
-    init)
-	    FORCE_INIT="1"
-        init
+    install)
+        FORCE_INIT="1"
+        install
         ;;
     *)
-        echo "Usage: $0 {start|stop|restart|init}"
+        echo "Usage: $0 {start|stop|restart|install}"
         exit 1
         ;;
 esac
 
 exit $?
-
