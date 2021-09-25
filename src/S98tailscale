@@ -37,7 +37,7 @@ install() {
 start() {
     msg_begin "Starting tailscale"
     modprobe tun
-    ${PROG} --state=/usr/bin/tailscaled.state > /tmp/tailscaled.log 2>&1 &
+    ${PROG} --state=/usr/bin/tailscaled.state > /var/log/tailscaled.log 2>&1 &
     test $? == 0 && msg_done || msg_fail
     return 0
 }
