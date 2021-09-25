@@ -1,7 +1,11 @@
 # motioneyeos_ext
 A small set of scripts useful to add specific functionalities to Motioneyeos (version for Raspberry Pi)
 
-`S98tailscale`
+### Tailscale
+
+Website: [Tailscale](https://tailscale.com/)
+
+Init Script: `S98tailscale`
 
 - Install Motioneyeos (follow this guide: [https://github.com/ccrisan/motioneyeos/wiki/Installation](https://github.com/ccrisan/motioneyeos/wiki/Installation))
 - Connect via ssh to your Raspberry Pi where Motioneyeos is installed (eg.: `ssh admin@192.168.1.50`)
