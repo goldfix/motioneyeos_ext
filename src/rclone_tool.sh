@@ -18,6 +18,12 @@ with zipfile.ZipFile('/tmp/rclone.zip', "r") as z:
    z.extractall("/tmp/rclone")
 EOF
 
+run() {
+   echo Moving files to remote folder...
+   source ${PROG_LOCAL_CONF}
+   rclone move ${CAM_FOLDER} google_drive:${REMOTE_FOLDER} --skip-links > /var/log/rclone.log 2>&1
+}
+
 install() {
    mount -o remount,rw /
    mount -o remount,rw /boot
@@ -32,6 +38,13 @@ install() {
 }
 
 config() {
+   echo
+   echo Configure rclone tool.
+   echo
+   rclone config
+   echo
+   echo Configure local folders.
+   echo
    echo Local data output Camera Folder \(if empty default: /data/output/Camera1\)?
    read CAM_FOLDER
 
@@ -41,23 +54,24 @@ config() {
     fi
     echo Output Camera Folder is: ${CAM_FOLDER}
 
-    while true; do
-        echo Remote folder?
-        read REMOTE_FOLDER
-        if [ "${REMOTE_FOLDER}" = "" ]
-        then
-            continue
-        else
-            echo Remote Folder is: ${REMOTE_FOLDER}
-            break
-        fi
-    done
+    TMP="/Motioneyeos/${HOSTNAME}"
+    echo Remote folder \(if empty default: ${TMP}\)?
+    read REMOTE_FOLDER
+    if [ "${REMOTE_FOLDER}" = "" ]
+    then
+        REMOTE_FOLDER=${TMP}
+    fi
+    echo Remote Folder is: ${REMOTE_FOLDER}
 
     echo CAM_FOLDER=${CAM_FOLDER} > ${PROG_LOCAL_CONF}
     echo REMOTE_FOLDER=${REMOTE_FOLDER} >> ${PROG_LOCAL_CONF}
 }
 
 case "$1" in
+    run)
+        run
+        ;;
+
     config)
         config
         ;;
@@ -67,7 +81,7 @@ case "$1" in
         config
         ;;
     *)
-        echo "Usage: $0 {install|config}"
+        echo "Usage: $0 {install|config|run}"
         exit 1
         ;;
 esac

@@ -35,4 +35,4 @@ curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/v_1_0/src/rclo
 ```
 - Reboot your Raspberry Pi (with the command: `reboot`).
 - Connect via ssh to your Raspberry Pi where Motioneyeos is installed (eg.: `ssh admin@192.168.1.50`)
-- Configure Rclone: `rclone config`
+- Configure Rclone: `rclone_tool config`
