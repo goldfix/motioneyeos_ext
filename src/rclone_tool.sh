@@ -4,20 +4,22 @@ set -e -o pipefail
 PROG_URL="https://downloads.rclone.org/v1.56.1/rclone-v1.56.1-linux-arm.zip"
 PROG_TMP_FOLDER="/tmp"
 PROG_BIN_FOLDER="/usr/bin"
-PROG_TMP_FILE="${PROG_TMP_FOLDER}/rclone.zip"
-PROG_PY_UNZIP="${PROG_TMP_FOLDER}/unzip_rclone.py"
-PROG_DEST_FOLDER="${PROG_TMP_FOLDER}/rclone/rclone-v1.56.1-linux-arm"
-PROG_DEST_FILE="${PROG_DEST_FOLDER}/rclone"
+
+PROG_TMP_ZIP_FILE="${PROG_TMP_FOLDER}/rclone.zip"
+PROG_TMP_FILE="${PROG_TMP_FOLDER}/rclone-v1.56.1-linux-arm/rclone"
+PROG_PY_UNZIP_TOOL="${PROG_TMP_FOLDER}/unzip_rclone.py"
+
+PROG_DEST_FILE="${PROG_BIN_FOLDER}/rclone"
 PROG_LOCAL_CONF="${PROG_BIN_FOLDER}/rclone_local.config"
 PROG_CONF="${PROG_BIN_FOLDER}/rclone.config"
 RCLONE_DEST=""
 RCLONE_OP=""
 
-cat << EOF > ${PROG_PY_UNZIP}
+cat << EOF > ${PROG_PY_UNZIP_TOOL}
 import zipfile
 
-with zipfile.ZipFile('/tmp/rclone.zip', "r") as z:
-   z.extractall("/tmp/rclone")
+with zipfile.ZipFile('${PROG_TMP_ZIP_FILE}', "r") as z:
+   z.extractall("/tmp")
 EOF
 
 run() {
@@ -50,16 +52,23 @@ run() {
 }
 
 install() {
-   mount -o remount,rw /
-   mount -o remount,rw /boot
-   rm -f ${PROG_DEST_FILE}
-   curl ${PROG_URL} -o ${PROG_TMP_FILE}
-   python ${PROG_PY_UNZIP}
-   chmod ugo+rx ${PROG_DEST_FILE}
-   cp ${PROG_DEST_FILE} /usr/bin
+    if [ ! -f "${PROG_TMP_FOLDER}/rclone_tool.sh" ]
+    then
+        echo "Plese run:"
+        echo "curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/main/src/S98tailscale -o /tmp/S98tailscale && bash /tmp/S98tailscale install"
+        echo "to reinstall."
+        exit 1
+    fi
+    mount -o remount,rw /
+    mount -o remount,rw /boot
+    rm -f ${PROG_DEST_FILE}*
+    curl ${PROG_URL} -o ${PROG_TMP_ZIP_FILE}
+    python ${PROG_PY_UNZIP_TOOL}
+    chmod ugo+rx ${PROG_TMP_FILE}
+    cp ${PROG_TMP_FILE} /usr/bin
 
-   chmod ugo+rx ${PROG_TMP_FOLDER}/rclone_tool.sh
-   cp ${PROG_TMP_FOLDER}/rclone_tool.sh ${PROG_BIN_FOLDER}/rclone_tool.sh
+    chmod ugo+rx ${PROG_TMP_FOLDER}/rclone_tool.sh
+    cp ${PROG_TMP_FOLDER}/rclone_tool.sh ${PROG_BIN_FOLDER}/rclone_tool.sh
 }
 
 config() {
@@ -93,8 +102,8 @@ config() {
 
     chmod ug+r ${PROG_LOCAL_CONF}
     chmod ug+r ${PROG_CONF}
+    chmod ugo+rx ${PROG_DEST_FILE}
     chmod ugo+rx ${PROG_BIN_FOLDER}/rclone_tool.sh
-    chmod ugo+rx ${PROG_BIN_FOLDER}/rclone
 }
 
 case "$1" in
