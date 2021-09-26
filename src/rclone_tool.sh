@@ -19,9 +19,15 @@ with zipfile.ZipFile('/tmp/rclone.zip', "r") as z:
 EOF
 
 run() {
+    if [ -z "$2" ]
+    then
+        echo "Missing Source destination name."
+        exit 1
+    fi
+
    echo Moving files to remote folder...
    source ${PROG_LOCAL_CONF}
-   ${PROG_DEST_FILE} move ${CAM_FOLDER} google_drive:${REMOTE_FOLDER} --skip-links --log-file /var/log/rclone.log --log-level INFO --config ${PROG_CONF}
+   ${PROG_DEST_FILE} move ${CAM_FOLDER} ${2}:${REMOTE_FOLDER} --skip-links --log-file /var/log/rclone.log --log-level INFO --config ${PROG_CONF}
 }
 
 install() {
@@ -81,7 +87,7 @@ case "$1" in
         config
         ;;
     *)
-        echo "Usage: $0 {install|config|run}"
+        echo "Usage: $0 {install|config|run <NAME_DEST>}"
         exit 1
         ;;
 esac
