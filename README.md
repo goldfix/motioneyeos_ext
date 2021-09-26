@@ -31,7 +31,7 @@ To install or update Rclone:
 - Connect via ssh to your Raspberry Pi where Motioneyeos is installed (eg.: `ssh admin@192.168.1.50`)
 - Run the command:
 ```
-curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/v_1_0/src/rclone.sh -o /tmp/rclone.sh && bash /tmp/rclone.sh install
+curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/v_1_0/src/rclone_tool.sh -o /tmp/rclone_tool.sh && bash /tmp/rclone_tool.sh install
 ```
 - Reboot your Raspberry Pi (with the command: `reboot`).
 - Connect via ssh to your Raspberry Pi where Motioneyeos is installed (eg.: `ssh admin@192.168.1.50`)
