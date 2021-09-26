@@ -10,6 +10,14 @@ PROG_URL="https://pkgs.tailscale.com/stable/tailscale_1.14.4_arm.tgz"
 test -n "${OS_VERSION}" || source /etc/init.d/base
 
 install() {
+    if [ ! -f "/tmp/S98tailscale" ]
+    then
+        echo "Plese run:"
+        echo "curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/main/src/S98tailscale -o /tmp/S98tailscale && bash /tmp/S98tailscale install"
+        echo "to reinstall."
+        exit 1
+    fi
+
     if [ -f "${PROG}" ] && [ "${FORCE_INIT}" == "0" ];
     then
         /bin/true
