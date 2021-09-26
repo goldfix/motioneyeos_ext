@@ -1,0 +1,76 @@
+#!/bin/bash
+
+set -e -o pipefail
+PROG="/usr/bin/tailscaled"
+PROG_TMP="/tmp/tailscale.tgz"
+PROG_TMP_FOLDER="/tmp/tailscale"
+FORCE_INIT="0"
+PROG_URL="https://pkgs.tailscale.com/stable/tailscale_1.14.4_arm.tgz"
+
+test -n "${OS_VERSION}" || source /etc/init.d/base
+
+install() {
+    if [ -f "${PROG}" ] && [ "${FORCE_INIT}" == "0" ];
+    then
+        /bin/true
+    else
+        mount -o remount,rw /
+        mount -o remount,rw /boot
+
+        rm -rf /usr/bin/tailscale*
+        rm -rf /tmp/tailscale*
+        cd /tmp
+        curl -L ${PROG_URL} --output ${PROG_TMP}
+        tar xvf ${PROG_TMP}
+        mv /tmp/tailscale_1.14.4_arm ${PROG_TMP_FOLDER}
+        cp ${PROG_TMP_FOLDER}/tailscale /usr/bin/
+        cp ${PROG_TMP_FOLDER}/tailscaled /usr/bin/
+        rm -rf /tmp/tailscale*
+        # rmmod tun
+        # modprobe tun
+
+        chmod ugo+rx /tmp/S98tailscale
+        cp -a /tmp/S98tailscale /etc/init.d/
+    fi
+}
+
+start() {
+    msg_begin "Starting tailscale"
+    modprobe tun
+    ${PROG} --state=/usr/bin/tailscaled.state > /var/log/tailscaled.log 2>&1 &
+    test $? == 0 && msg_done || msg_fail
+    return 0
+}
+
+stop() {
+    msg_begin "Stopping tailscale"
+    killall -q $(basename ${PROG})
+    msg_done
+}
+
+case "$1" in
+    start)
+        install
+        start
+        ;;
+
+    stop)
+        stop
+        ;;
+
+    restart)
+        stop
+        start
+        ;;
+
+    install)
+        FORCE_INIT="1"
+        install
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart|install}"
+        exit 1
+        ;;
+esac
+
+exit $?
