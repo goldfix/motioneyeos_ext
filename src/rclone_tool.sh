@@ -55,7 +55,7 @@ install() {
     if [ ! -f "${PROG_TMP_FOLDER}/rclone_tool.sh" ]
     then
         echo "Plese run:"
-        echo "curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/main/src/S98tailscale -o /tmp/S98tailscale && bash /tmp/S98tailscale install"
+        echo "curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/main/src/rclone_tool.sh -o /tmp/rclone_tool.sh && bash /tmp/rclone_tool.sh install"
         echo "to reinstall."
         exit 1
     fi
