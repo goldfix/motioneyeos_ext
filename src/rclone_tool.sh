@@ -21,7 +21,7 @@ EOF
 run() {
    echo Moving files to remote folder...
    source ${PROG_LOCAL_CONF}
-   rclone move ${CAM_FOLDER} google_drive:${REMOTE_FOLDER} --skip-links > /var/log/rclone.log 2>&1
+   rclone move ${CAM_FOLDER} google_drive:${REMOTE_FOLDER} --skip-links --log-file /var/log/rclone.log --log-level INFO
 }
 
 install() {
