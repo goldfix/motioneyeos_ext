@@ -89,7 +89,7 @@ case "$1" in
         config
         ;;
     *)
-        echo "Usage: $0 {install|config|run <NAME_DEST>}"
+        echo "Usage: $0 {install|config|run <RCLONE_NAME_DEST>}"
         exit 1
         ;;
 esac
