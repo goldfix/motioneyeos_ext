@@ -13,7 +13,7 @@ To install or update Tailscale:
 - Connect via ssh to your Raspberry Pi where Motioneyeos is installed (eg.: `ssh admin@192.168.1.50`)
 - Run the command:
 ```
-curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/v_1_0/src/S98tailscale -o /tmp/S98tailscale && bash /tmp/S98tailscale install
+curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/main/S98tailscale -o /tmp/S98tailscale && bash /tmp/S98tailscale install
 ```
 - Reboot your Raspberry Pi (with the command: `reboot`).
 - Connect via ssh to your Raspberry Pi where Motioneyeos is installed (eg.: `ssh admin@192.168.1.50`)
@@ -31,7 +31,7 @@ To install or update Rclone:
 - Connect via ssh to your Raspberry Pi where Motioneyeos is installed (eg.: `ssh admin@192.168.1.50`)
 - Run the command:
 ```
-curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/v_1_0/src/rclone_tool.sh -o /tmp/rclone_tool.sh && bash /tmp/rclone_tool.sh install
+curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/main/rclone_tool.sh -o /tmp/rclone_tool.sh && bash /tmp/rclone_tool.sh install
 ```
 - Reboot your Raspberry Pi (with the command: `reboot`).
 - Connect via ssh to your Raspberry Pi where Motioneyeos is installed (eg.: `ssh admin@192.168.1.50`)
