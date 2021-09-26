@@ -1,5 +1,5 @@
 # motioneyeos_ext
-A small set of scripts useful to add specific functionalities to [Motioneyeos](https://github.com/ccrisan/motioneyeos) (tested on Raspberry Pi, but I think is possible to use on other versions of Motioneyeos)
+A small set of scripts useful to add specific functionalities to [Motioneyeos](https://github.com/ccrisan/motioneyeos) (tested on Raspberry Pi Zero, but I think is possible to use on other versions of Motioneyeos)
 
 ## Tailscale
 
