@@ -39,9 +39,11 @@ curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/main/rclone_to
 
 #### Parameters
 
-`rclone_tool install`: install Rclone on your device. The destination folder of Rclone and configuration files will be: `/usr/bin/`.
-`rclone_tool config`: the configuration procedure has two different steps. The first step configures Rclone and the second step configures the local camera folder and remote folder.
-`rclone_tool run <NAME_DEST>`: requires the destination Rclone configuration (same used to configure it). This command is useful to configure with `cron`.
+`rclone_tool install`: installs Rclone on your device. The destination folder of Rclone and configuration files will be: `/usr/bin/`.
+
+`rclone_tool config`: configures Rclone, remote and local folders. The configuration procedure has two different steps. The first step configures Rclone and the second step configures the local camera folder and remote folder.
+
+`rclone_tool run <NAME_DEST>`: run Rclone. Requires the destination Rclone configuration (same used to configure it). This command is useful to configure with `cron`.
 
 Two different configuration files  will create after configuration:
 - `/usr/bin/rclone.config`: contains the credentials to access to remote folder.
