@@ -45,6 +45,6 @@ curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/main/rclone_to
 
 `rclone_tool run <NAME_DEST>`: runs Rclone. Requires the destination Rclone configuration (same used to configure it). This command is useful to configure with `cron`.
 
-Two different configuration files  will create after configuration:
+Two different configuration files  will be create after configuration:
 - `/usr/bin/rclone.config`: contains the credentials to access to remote folder.
 - `/usr/bin/rclone_local.config`: contains the local data camera folder and remote folder. This file is used from command: `rclone_tool run <NAME_DEST>`.
