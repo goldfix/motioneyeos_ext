@@ -23,7 +23,7 @@ curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/main/S98tailsc
 
 Website: [Rclone](https://rclone.org/)
 
-Script: `rclone.sh`
+Script: `rclone_tool.sh`
 
 To install or update Rclone:
 
