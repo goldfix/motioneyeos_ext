@@ -43,7 +43,7 @@ curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/main/rclone_to
 
 `rclone_tool config`: configures Rclone, remote and local folders. The configuration procedure has two different steps. The first step configures Rclone and the second step configures the local camera folder and remote folder.
 
-`rclone_tool run <NAME_DEST>`: runs Rclone. Requires the destination Rclone configuration (same used to configure it). This command is useful to configure with `cron`.
+`rclone_tool run <NAME_DEST>`: runs Rclone. Requires the destination Rclone configuration (same used to configure it). This command is useful to be configured and scheduled with `cron`.
 
 Two different configuration files  will be create after configuration:
 - `/usr/bin/rclone.config`: contains the credentials to access to remote folder.
