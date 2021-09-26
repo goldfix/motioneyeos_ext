@@ -36,3 +36,13 @@ curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/v_1_0/src/rclo
 - Reboot your Raspberry Pi (with the command: `reboot`).
 - Connect via ssh to your Raspberry Pi where Motioneyeos is installed (eg.: `ssh admin@192.168.1.50`)
 - Configure Rclone: `rclone_tool config`
+
+#### Parameters
+
+`rclone_tool install`: install Rclone on your device. The destination folder of Rclone and configuration files will be: `/usr/bin/`.
+`rclone_tool config`: the configuration procedure has two different steps. The first step configures Rclone and the second step configures the local camera folder and remote folder.
+`rclone_tool run <NAME_DEST>`: requires the destination Rclone configuration (same used to configure it). This command is useful to configure with `cron`.
+
+Two different configuration files  will create after configuration:
+- `/usr/bin/rclone.config`: contains the credentials to access to remote folder.
+- `/usr/bin/rclone_local.config`: contains the local data camera folder and remote folder. This file is used from command: `rclone_tool run <NAME_DEST>`.
