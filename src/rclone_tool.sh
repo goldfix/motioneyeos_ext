@@ -9,7 +9,7 @@ PROG_PY_UNZIP="${PROG_TMP_FOLDER}/unzip_rclone.py"
 PROG_DEST_FOLDER="${PROG_TMP_FOLDER}/rclone/rclone-v1.56.1-linux-arm"
 PROG_DEST_FILE="${PROG_DEST_FOLDER}/rclone"
 PROG_LOCAL_CONF="${PROG_BIN_FOLDER}/rclone_local.config"
-
+PROG_CONF="${PROG_BIN_FOLDER}/rclone.config"
 
 cat << EOF > ${PROG_PY_UNZIP}
 import zipfile
@@ -21,13 +21,13 @@ EOF
 run() {
    echo Moving files to remote folder...
    source ${PROG_LOCAL_CONF}
-   rclone move ${CAM_FOLDER} google_drive:${REMOTE_FOLDER} --skip-links --log-file /var/log/rclone.log --log-level INFO
+   ${PROG_DEST_FILE} move ${CAM_FOLDER} google_drive:${REMOTE_FOLDER} --skip-links --log-file /var/log/rclone.log --log-level INFO --config ${PROG_CONF}
 }
 
 install() {
    mount -o remount,rw /
    mount -o remount,rw /boot
-   rm -f /usr/bin/rclone
+   rm -f ${PROG_DEST_FILE}
    curl ${PROG_URL} -o ${PROG_TMP_FILE}
    python ${PROG_PY_UNZIP}
    chmod ugo+rx ${PROG_DEST_FILE}
@@ -41,7 +41,7 @@ config() {
    echo
    echo Configure rclone tool.
    echo
-   rclone config
+   ${PROG_DEST_FILE} config --config ${PROG_CONF}
    echo
    echo Configure local folders.
    echo
