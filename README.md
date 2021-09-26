@@ -1,7 +1,7 @@
 # motioneyeos_ext
 A small set of scripts useful to add specific functionalities to Motioneyeos (tested on Raspberry Pi, but I think is possible to use on other versions of Motioneyeos)
 
-### Tailscale
+## Tailscale
 
 Website: [Tailscale](https://tailscale.com/)
 
@@ -19,7 +19,7 @@ curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/main/S98tailsc
 - Connect via ssh to your Raspberry Pi where Motioneyeos is installed (eg.: `ssh admin@192.168.1.50`)
 - Run the command: `tailscale up` and configure using your Tailscale credentials.
 
-### Rclone
+## Rclone
 
 Website: [Rclone](https://rclone.org/)
 
