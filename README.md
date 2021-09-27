@@ -49,7 +49,7 @@ curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/main/src/rclon
 
 Two different configuration files  will be create after configuration:
 - `/usr/bin/rclone.config`: contains the credentials to access to remote folder.
-- `/usr/bin/rclone_local.config`: contains the local data camera folder and remote folder. This file is used from command: `rclone_tool run <NAME_DEST>`.
+- `/usr/bin/rclone_local.config`: contains the local data camera folder and remote folder. This file is used from command: `rclone_tool run <copy|move> <RCLONE_NAME_DEST>`.
 
 #### Sample Cron configuration
 ```
