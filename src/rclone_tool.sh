@@ -1,12 +1,12 @@
 #!/bin/bash
 
 set -e -o pipefail
-PROG_URL="https://downloads.rclone.org/v1.56.1/rclone-v1.56.1-linux-arm.zip"
+PROG_URL="https://downloads.rclone.org/v1.56.2/rclone-v1.56.2-linux-arm.zip"
 PROG_TMP_FOLDER="/tmp"
 PROG_BIN_FOLDER="/usr/bin"
 
 PROG_TMP_ZIP_FILE="${PROG_TMP_FOLDER}/rclone.zip"
-PROG_TMP_FILE="${PROG_TMP_FOLDER}/rclone-v1.56.1-linux-arm/rclone"
+PROG_TMP_FILE="${PROG_TMP_FOLDER}/rclone-v1.56.2-linux-arm/rclone"
 PROG_PY_UNZIP_TOOL="${PROG_TMP_FOLDER}/unzip_rclone.py"
 
 PROG_DEST_FILE="${PROG_BIN_FOLDER}/rclone"
@@ -61,7 +61,8 @@ install() {
     fi
     mount -o remount,rw /
     mount -o remount,rw /boot
-    rm -f ${PROG_DEST_FILE}*
+    rm -f ${PROG_DEST_FILE}
+    rm -f ${PROG_DEST_FILE}_tool.sh
     curl ${PROG_URL} -o ${PROG_TMP_ZIP_FILE}
     python ${PROG_PY_UNZIP_TOOL}
     chmod ugo+rx ${PROG_TMP_FILE}
