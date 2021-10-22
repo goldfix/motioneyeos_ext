@@ -120,7 +120,6 @@ case "$1" in
 
     install)
         install
-        config
         ;;
     *)
         echo "Usage: $0 {install|config|run <copy|move> <RCLONE_NAME_DEST>}"
