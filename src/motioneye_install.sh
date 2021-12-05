@@ -2,6 +2,8 @@
 
 set -e -o pipefail
 
+read -n 1 -r -s -p $'This procedure will install motioneye & tailscale.\n'
+
 apt-get install motion ffmpeg v4l-utils -y
 systemctl stop motion
 systemctl disable motion
