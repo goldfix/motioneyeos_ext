@@ -74,7 +74,7 @@ Two different configuration files  will be create after configuration:
 # EOF
 ```
 
-## Motioneye and Tailscale on DietPi (Raspberry Pi ARMv6 or ARMv7)
+## Motioneye and Tailscale on DietPi v7.8.2 (Raspberry Pi ARMv6 or ARMv7)
 
 Website:
 
@@ -103,5 +103,3 @@ curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/1.7/src/motion
 - Connect via ssh to your Raspberry Pi where Motioneyeos is installed (eg.: `ssh admin@192.168.1.50`)
 - Run the command: `tailscale up` and configure using your Tailscale credentials.
 - Connect local Motioneye website (eg.: `http://192.168.1.50:8765`). Remember to use the port: `8765`.
-
-
