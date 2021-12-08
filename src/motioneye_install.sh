@@ -34,9 +34,9 @@ pip install motioneye --upgrade
 systemctl restart motioneye
 
 # Install Tailscale
-curl -fsSL https://pkgs.tailscale.com/stable/debian/bullseye.noarmor.gpg | sudo apt-key add -
-curl -fsSL https://pkgs.tailscale.com/stable/debian/bullseye.tailscale-keyring.list | sudo tee /etc/apt/sources.list.d/tailscale.list
-sudo apt-get -y update
-sudo apt-get -y install tailscale
+curl -fsSL https://tailscale.com/install.sh -o /tmp/install.sh
+chmod ugo+x /tmp/install.sh
+/tmp/install.sh
+
 echo Tailscale: installation complete! Log in to start using Tailscale by running: 'tailscale up'
 echo Motioneye: with your browser try to connect to: \"$(hostname -I)\"
