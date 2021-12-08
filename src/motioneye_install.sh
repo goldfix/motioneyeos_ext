@@ -2,6 +2,7 @@
 
 set -e -o pipefail
 
+echo .
 read -n 1 -r -s -p $'This procedure will install motioneye & tailscale. Press CTRL+C to break.\n'
 
 # Install Motioneye
