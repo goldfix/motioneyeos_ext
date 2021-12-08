@@ -2,7 +2,7 @@
 
 set -e -o pipefail
 
-read -n 1 -r -s -p $'This procedure will install motioneye & tailscale.\n'
+read -n 1 -r -s -p $'This procedure will install motioneye & tailscale. Press CTRL+C to break.\n'
 
 # Install Motioneye
 apt-get update && apt-get -y upgrade

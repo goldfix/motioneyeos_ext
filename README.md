@@ -51,7 +51,34 @@ Two different configuration files  will be create after configuration:
 - `/usr/bin/rclone.config`: contains the credentials to access to remote folder.
 - `/usr/bin/rclone_local.config`: contains the local data camera folder and remote folder. This file is used from command: `rclone_tool run <copy|move> <RCLONE_NAME_DEST>`.
 
-#### Sample Cron configuration
+## Motioneye on DietPi (Raspberry Pi ARMv6 or ARMv7)
+
+Website:
+
+- [Motioneye](https://github.com/ccrisan/motioneye)
+- [DietPi](https://dietpi.com/)
+
+Script: `motioneye_install.sh`
+
+This script permit to install Motioneye on your device with DietPi OS. The supported version are:
+
+- ARMv6 32-bit
+- ARMv7 32-bit
+
+Please visit the DietPi website to collect more info to install and configure your Raspberry Pi.
+
+- Install DietPi OS on your Raspberry Pi.
+- Connect via ssh to your Raspberry Pi where Motioneyeos is installed (eg.: `ssh root@192.168.1.50`)
+- Run the command:
+```
+curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/1.7/src/motioneye_install.sh -o /tmp/motioneye_install.sh && bash /tmp/motioneye_install.sh
+```
+- Reboot your Raspberry Pi (with the command: `reboot`).
+- Connect via ssh to your Raspberry Pi where Motioneyeos is installed (eg.: `ssh admin@192.168.1.50`)
+- Run the command: `tailscale up` and configure using your Tailscale credentials.
+- Connect local Motioneye website (eg.: `http://192.168.1.50/`).
+
+## Sample Cron configuration
 ```
 # .---------------- minute (0 - 59)
 # |  .------------- hour (0 - 23)
