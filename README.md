@@ -58,6 +58,22 @@ Two different configuration files  will be create after configuration:
 - `/usr/bin/rclone.config`: contains the credentials to access to remote folder.
 - `/usr/bin/rclone_local.config`: contains the local data camera folder and remote folder. This file is used from command: `rclone_tool run <copy|move> <RCLONE_NAME_DEST>`.
 
+#### Sample Cron configuration
+```
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7)  OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  *  command to be executed
+# *  *  *  *  *  command --arg1 --arg2 file1 file2 2>&1
+
+*/15 *  *  *  *  /usr/bin/rclone_tool.sh run move remote
+
+# EOF
+```
+
 ## Motioneye and Tailscale on DietPi (Raspberry Pi ARMv6 or ARMv7)
 
 Website:
@@ -86,18 +102,4 @@ curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/1.7/src/motion
 - Run the command: `tailscale up` and configure using your Tailscale credentials.
 - Connect local Motioneye website (eg.: `http://192.168.1.50/`).
 
-## Sample Cron configuration
-```
-# .---------------- minute (0 - 59)
-# |  .------------- hour (0 - 23)
-# |  |  .---------- day of month (1 - 31)
-# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
-# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7)  OR sun,mon,tue,wed,thu,fri,sat
-# |  |  |  |  |
-# *  *  *  *  *  command to be executed
-# *  *  *  *  *  command --arg1 --arg2 file1 file2 2>&1
 
-*/15 *  *  *  *  /usr/bin/rclone_tool.sh run move remote
-
-# EOF
-```
