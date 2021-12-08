@@ -34,7 +34,6 @@ pip install motioneye --upgrade
 systemctl restart motioneye
 
 # Install Tailscale
-curl -fsSL https://tailscale.com/install.sh | sh
 curl -fsSL https://pkgs.tailscale.com/stable/debian/bullseye.noarmor.gpg | sudo apt-key add -
 curl -fsSL https://pkgs.tailscale.com/stable/debian/bullseye.tailscale-keyring.list | sudo tee /etc/apt/sources.list.d/tailscale.list
 sudo apt-get -y update
