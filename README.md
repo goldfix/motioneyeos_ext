@@ -1,6 +1,12 @@
 # motioneyeos_ext
 A small set of scripts useful to add specific functionalities to [Motioneyeos](https://github.com/ccrisan/motioneyeos) (tested on Raspberry Pi Zero, but I think is possible to use on other versions of Motioneyeos)
 
+ [Tailscale](#tailscale)
+ 
+ [Rclone](#rclone)
+ 
+ [Motioneye and Tailscale on DietPi (Raspberry Pi ARMv6 or ARMv7)](#motioneye-and-tailscale-on-dietpi-(raspberry-pi-armv6-or-armv7))
+
 ## Tailscale
 
 Website: [Tailscale](https://tailscale.com/)
