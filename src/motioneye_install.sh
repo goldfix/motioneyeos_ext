@@ -38,3 +38,5 @@ curl -fsSL https://pkgs.tailscale.com/stable/debian/bullseye.noarmor.gpg | sudo 
 curl -fsSL https://pkgs.tailscale.com/stable/debian/bullseye.tailscale-keyring.list | sudo tee /etc/apt/sources.list.d/tailscale.list
 sudo apt-get -y update
 sudo apt-get -y install tailscale
+echo Tailscale: installation complete! Log in to start using Tailscale by running: 'tailscale up'
+echo Motioneye: With your browser try to connect to: \"$(hostname -I)\"
