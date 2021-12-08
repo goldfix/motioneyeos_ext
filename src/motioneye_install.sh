@@ -4,6 +4,10 @@ set -e -o pipefail
 
 read -n 1 -r -s -p $'This procedure will install motioneye & tailscale.\n'
 
+# Install Motioneye
+apt-get update && apt-get -y upgrade
+mkdir -p /var/log/motion
+touch /var/log/motion/motion.log
 apt-get install motion ffmpeg v4l-utils -y
 systemctl stop motion
 systemctl disable motion
@@ -27,3 +31,10 @@ systemctl start motioneye
 
 pip install motioneye --upgrade
 systemctl restart motioneye
+
+# Install Tailscale
+curl -fsSL https://tailscale.com/install.sh | sh
+curl -fsSL https://pkgs.tailscale.com/stable/debian/bullseye.noarmor.gpg | sudo apt-key add -
+curl -fsSL https://pkgs.tailscale.com/stable/debian/bullseye.tailscale-keyring.list | sudo tee /etc/apt/sources.list.d/tailscale.list
+sudo apt-get -y update
+sudo apt-get -y install tailscale
