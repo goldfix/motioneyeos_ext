@@ -7,7 +7,7 @@ A small set of scripts useful to add specific functionalities to [Motioneyeos](h
 
  [Motioneye and Tailscale on DietPi (Raspberry Pi ARMv6 or ARMv7)](#motioneye-and-tailscale-on-dietpi-raspberry-pi-armv6-or-armv7)
 
-## Tailscale
+## Tailscale on MotioneyeOS
 
 Website: [Tailscale](https://tailscale.com/)
 
@@ -25,7 +25,7 @@ curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/main/src/S98ta
 - Connect via ssh to your Raspberry Pi where Motioneyeos is installed (eg.: `ssh admin@192.168.1.50`)
 - Run the command: `tailscale up` and configure using your Tailscale credentials.
 
-## Rclone
+## Rclone on MotioneyeOS and Motioneye DietPi
 
 Website: [Rclone](https://rclone.org/)
 
@@ -91,7 +91,7 @@ This script permit to install Motioneye and Tailscale on your device with DietPi
 Please visit the DietPi website to collect more info to install and configure your Raspberry Pi.
 
 - Install DietPi OS on your Raspberry Pi.
-- Connect via ssh to your Raspberry Pi where Motioneyeos is installed (eg.: `ssh root@192.168.1.50`)
+- Connect via ssh to your Raspberry Pi where DietPi is installed (eg.: `ssh root@192.168.1.50`)
 - Switch to `root` user.
 - Run the command:
 
@@ -103,3 +103,4 @@ curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/1.7/src/motion
 - Connect via ssh to your Raspberry Pi where Motioneyeos is installed (eg.: `ssh admin@192.168.1.50`)
 - Run the command: `tailscale up` and configure using your Tailscale credentials.
 - Connect local Motioneye website (eg.: `http://192.168.1.50:8765`). Remember to use the port: `8765`.
+- To install RClone follow this guide: [Rclone on MotioneyeOS and Motioneye DietPi](#Rclone on MotioneyeOS and Motioneye DietPi)
