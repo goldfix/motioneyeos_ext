@@ -30,8 +30,8 @@ systemctl daemon-reload
 systemctl enable motioneye
 systemctl start motioneye
 
-pip install motioneye --upgrade
-systemctl restart motioneye
+# pip install motioneye --upgrade
+# systemctl restart motioneye
 
 # Install Tailscale
 curl -fsSL https://tailscale.com/install.sh -o /tmp/install.sh
