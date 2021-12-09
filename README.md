@@ -104,7 +104,7 @@ curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/main/src/motio
 ```
 
 * Reboot your Raspberry Pi (with the command: `reboot`).
-* Connect via ssh to your Raspberry Pi where Motioneyeos is installed (eg.: `ssh admin@192.168.1.50`)
+* Connect via ssh to your Raspberry Pi where DietPi is installed (eg.: `ssh root@192.168.1.50`)
 * Run the command: `tailscale up` and configure using your Tailscale credentials.
 * Connect local Motioneye website (eg.: `http://192.168.1.50:8765`). Remember to use the port: `8765`.
 * To install Rclone follow this guide: [Rclone on MotioneyeOS and Motioneye DietPi](#rclone-on-motioneyeos-and-motioneye-dietpi)
