@@ -35,8 +35,8 @@ Script: [`rclone_tool.sh`](src/rclone_tool.sh)
 
 To install or update Rclone:
 
-* Install Motioneyeos on your Raspberry Pi (follow this guide: [https://github.com/ccrisan/motioneyeos/wiki/Installation](https://github.com/ccrisan/motioneyeos/wiki/Installation))
-* Connect via ssh to your Raspberry Pi where Motioneyeos is installed (eg.: `ssh admin@192.168.1.50`)
+* Install Motioneyeos or DietPi on your Raspberry Pi (follow this guide: [https://github.com/ccrisan/motioneyeos/wiki/Installation](https://github.com/ccrisan/motioneyeos/wiki/Installation)) or [https://dietpi.com/docs/install/](https://dietpi.com/docs/install/))
+* Connect via ssh to your Raspberry Pi where you have installed Motioneyeos (or DietPi) (eg.: `ssh admin@192.168.1.50`)
 * Run the command:
 
 ```
@@ -44,7 +44,7 @@ curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/main/src/rclon
 ```
 
 * Reboot your Raspberry Pi (with the command: `reboot`).
-* Connect via ssh to your Raspberry Pi where Motioneyeos is installed (eg.: `ssh admin@192.168.1.50`)
+* Connect via ssh to your Raspberry Pi where you have installed Motioneyeos (or DietPi) (eg.: `ssh admin@192.168.1.50`)
 * Configure Rclone: `rclone_tool config`
 
 #### Parameters
