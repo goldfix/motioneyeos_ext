@@ -1,11 +1,11 @@
 # motioneyeos_ext
 A small set of scripts useful to add specific functionalities to [Motioneyeos](https://github.com/ccrisan/motioneyeos) (tested on Raspberry Pi Zero, but I think is possible to use on other versions of Motioneyeos)
 
- [Tailscale on MotioneyeOS](#tailscale-on-motioneyeos)
+#### Table of Contents
 
- [Rclone on MotioneyeOS and Motioneye DietPi](#rclone-on-motioneyeos-and-motioneye-dietpi)
-
- [Motioneye and Tailscale on DietPi v7.8.2 (Raspberry Pi ARMv6 or ARMv7)](#motioneye-and-tailscale-on-dietpi-v782-raspberry-pi-armv6-or-armv7)
+* [Tailscale on MotioneyeOS](#tailscale-on-motioneyeos)
+* [Rclone on MotioneyeOS and Motioneye DietPi](#rclone-on-motioneyeos-and-motioneye-dietpi)
+* [Motioneye and Tailscale on DietPi v7.8.2 (Raspberry Pi ARMv6 or ARMv7)](#motioneye-and-tailscale-on-dietpi-v782-raspberry-pi-armv6-or-armv7)
 
 ## Tailscale on MotioneyeOS
 
