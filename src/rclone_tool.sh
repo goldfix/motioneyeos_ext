@@ -70,6 +70,8 @@ install() {
 
     chmod ugo+rx ${PROG_TMP_FOLDER}/rclone_tool.sh
     cp ${PROG_TMP_FOLDER}/rclone_tool.sh ${PROG_BIN_FOLDER}/rclone_tool.sh
+    
+    echo Run \'rclone_tool.sh config\' to configure Rclone.
 }
 
 config() {
