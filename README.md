@@ -100,7 +100,7 @@ Please visit the DietPi website to collect more info to install and configure yo
 * Run the command:
 
 ```
-curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/1.7/src/motioneye_install.sh -o /tmp/motioneye_install.sh && bash /tmp/motioneye_install.sh
+curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/main/src/motioneye_install.sh -o /tmp/motioneye_install.sh && bash /tmp/motioneye_install.sh
 ```
 
 * Reboot your Raspberry Pi (with the command: `reboot`).
