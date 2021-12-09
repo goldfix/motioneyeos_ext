@@ -11,7 +11,7 @@ A small set of scripts useful to add specific functionalities to [Motioneyeos](h
 
 Website: [Tailscale](https://tailscale.com/)
 
-Script: `S98tailscale`
+Script: [`S98tailscale`](src/S98tailscale)
 
 To install or update Tailscale:
 
@@ -31,7 +31,7 @@ curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/main/src/S98ta
 
 Website: [Rclone](https://rclone.org/)
 
-Script: `rclone_tool.sh`
+Script: [`rclone_tool.sh`](src/rclone_tool.sh)
 
 To install or update Rclone:
 
@@ -85,7 +85,7 @@ Website:
 - [Motioneye](https://github.com/ccrisan/motioneye)
 - [DietPi](https://dietpi.com/)
 
-Script: `motioneye_install.sh`
+Script: [`motioneye_install.sh`](src/motioneye_install.sh)
 
 This script permit to install Motioneye and Tailscale on your Raspberry Pi with DietPi OS. The supported version are:
 
