@@ -3,7 +3,7 @@ A small set of scripts useful to add specific functionalities to [Motioneyeos](h
 
  [Tailscale](#tailscale)
 
- [Rclone](#rclone)
+ [Rclone](#rclone-on-motioneyeos-and-motioneye-dietpi)
 
  [Motioneye and Tailscale on DietPi (Raspberry Pi ARMv6 or ARMv7)](#motioneye-and-tailscale-on-dietpi-v782-raspberry-pi-armv6-or-armv7)
 
