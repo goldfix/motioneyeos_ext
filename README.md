@@ -84,6 +84,7 @@ Website:
 
 * [Motioneye](https://github.com/ccrisan/motioneye)
 * [DietPi](https://dietpi.com/)
+* [Tailscale](https://tailscale.com/)
 
 Script: [`motioneye_install.sh`](src/motioneye_install.sh)
 
