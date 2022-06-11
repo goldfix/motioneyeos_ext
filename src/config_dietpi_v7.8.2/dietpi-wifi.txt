@@ -3,6 +3,8 @@
 # - WiFi SSID: required, case sensitive
 aWIFI_SSID[0]='<TBD>'
 # - WiFi key: If no key/open, leave this blank
+# - In case of WPA-PSK, alternatively enter the 64-digit hexadecimal key returned by wpa_passphrase
+# - Please do NOT escape any magic characters. The script does this automatically as required.
 aWIFI_KEY[0]='<TBD>'
 # - Key type: NONE (no key/open) | WPA-PSK | WEP | WPA-EAP (then use settings below)
 aWIFI_KEYMGR[0]='WPA-PSK'
@@ -22,6 +24,8 @@ aWIFI_CERT[0]=''
 # - WiFi SSID: required, case sensitive
 aWIFI_SSID[1]=''
 # - WiFi key: If no key/open, leave this blank
+# - In case of WPA-PSK, alternatively enter the 64-digit hexadecimal key returned by wpa_passphrase
+# - Please do NOT escape any magic characters. The script does this automatically as required.
 aWIFI_KEY[1]=''
 # - Key type: NONE (no key/open) | WPA-PSK | WEP | WPA-EAP (then use settings below)
 aWIFI_KEYMGR[1]='WPA-PSK'
@@ -41,6 +45,8 @@ aWIFI_CERT[1]=''
 # - WiFi SSID: required, case sensitive
 aWIFI_SSID[2]=''
 # - WiFi key: If no key/open, leave this blank
+# - In case of WPA-PSK, alternatively enter the 64-digit hexadecimal key returned by wpa_passphrase
+# - Please do NOT escape any magic characters. The script does this automatically as required.
 aWIFI_KEY[2]=''
 # - Key type: NONE (no key/open) | WPA-PSK | WEP | WPA-EAP (then use settings below)
 aWIFI_KEYMGR[2]='WPA-PSK'
@@ -60,6 +66,8 @@ aWIFI_CERT[2]=''
 # - WiFi SSID: required, case sensitive
 aWIFI_SSID[3]=''
 # - WiFi key: If no key/open, leave this blank
+# - In case of WPA-PSK, alternatively enter the 64-digit hexadecimal key returned by wpa_passphrase
+# - Please do NOT escape any magic characters. The script does this automatically as required.
 aWIFI_KEY[3]=''
 # - Key type: NONE (no key/open) | WPA-PSK | WEP | WPA-EAP (then use settings below)
 aWIFI_KEYMGR[3]='WPA-PSK'
@@ -79,6 +87,8 @@ aWIFI_CERT[3]=''
 # - WiFi SSID: required, case sensitive
 aWIFI_SSID[4]=''
 # - WiFi key: If no key/open, leave this blank
+# - In case of WPA-PSK, alternatively enter the 64-digit hexadecimal key returned by wpa_passphrase
+# - Please do NOT escape any magic characters. The script does this automatically as required.
 aWIFI_KEY[4]=''
 # - Key type: NONE (no key/open) | WPA-PSK | WEP | WPA-EAP (then use settings below)
 aWIFI_KEYMGR[4]='WPA-PSK'
