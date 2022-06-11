@@ -1,12 +1,12 @@
 #!/bin/bash
 
 set -e -o pipefail
-PROG_URL="https://downloads.rclone.org/v1.57.0/rclone-v1.57.0-linux-arm.zip"
+PROG_URL="https://downloads.rclone.org/v1.58.1/rclone-v1.58.1-linux-arm.zip"
 PROG_TMP_FOLDER="/tmp"
 PROG_BIN_FOLDER="/usr/bin"
 
 PROG_TMP_ZIP_FILE="${PROG_TMP_FOLDER}/rclone.zip"
-PROG_TMP_FILE="${PROG_TMP_FOLDER}/rclone-v1.57.0-linux-arm/rclone"
+PROG_TMP_FILE="${PROG_TMP_FOLDER}/rclone-v1.58.1-linux-arm/rclone"
 PROG_PY_UNZIP_TOOL="${PROG_TMP_FOLDER}/unzip_rclone.py"
 
 PROG_DEST_FILE="${PROG_BIN_FOLDER}/rclone"
@@ -70,7 +70,7 @@ install() {
 
     chmod ugo+rx ${PROG_TMP_FOLDER}/rclone_tool.sh
     cp ${PROG_TMP_FOLDER}/rclone_tool.sh ${PROG_BIN_FOLDER}/rclone_tool.sh
-    
+
     echo Run \'rclone_tool.sh config\' to configure Rclone.
 }
 
