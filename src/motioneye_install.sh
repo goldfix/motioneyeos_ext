@@ -3,7 +3,7 @@
 set -e -o pipefail
 
 echo ------------------------------------------------------------------------
-read -n 1 -r -s -p $'This procedure will install motioneye & tailscale. Press CTRL+C to break.\n'
+read -n 1 -r -s -p $'This procedure will install motioneye. Press CTRL+C to break.\n'
 
 # Install Motioneye
 apt-get update && apt-get -y upgrade
@@ -34,9 +34,8 @@ systemctl start motioneye
 # systemctl restart motioneye
 
 # Install Tailscale
-curl -fsSL https://tailscale.com/install.sh -o /tmp/install.sh
-chmod ugo+x /tmp/install.sh
-/tmp/install.sh
+# curl -fsSL https://tailscale.com/install.sh -o /tmp/install.sh
+# chmod ugo+x /tmp/install.sh
+# /tmp/install.sh
 
-echo Tailscale: installation complete! Log in to start using Tailscale by running: 'tailscale up'
 echo Motioneye: with your browser try to connect to: \"$(hostname -I)\"
