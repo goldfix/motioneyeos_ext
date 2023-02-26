@@ -1,12 +1,12 @@
 #!/bin/bash
-
+set -x
 set -e -o pipefail
-PROG_URL="https://downloads.rclone.org/v1.57.0/rclone-v1.57.0-linux-arm.zip"
+PROG_URL="https://downloads.rclone.org/v1.60.1/rclone-v1.60.1-linux-arm.zip"
 PROG_TMP_FOLDER="/tmp"
 PROG_BIN_FOLDER="/usr/bin"
 
 PROG_TMP_ZIP_FILE="${PROG_TMP_FOLDER}/rclone.zip"
-PROG_TMP_FILE="${PROG_TMP_FOLDER}/rclone-v1.57.0-linux-arm/rclone"
+PROG_TMP_FILE="${PROG_TMP_FOLDER}/rclone-v1.60.1-linux-arm/rclone"
 PROG_PY_UNZIP_TOOL="${PROG_TMP_FOLDER}/unzip_rclone.py"
 
 PROG_DEST_FILE="${PROG_BIN_FOLDER}/rclone"
@@ -30,7 +30,7 @@ run() {
     fi
     if [ "${RCLONE_OP}" = "" ]
     then
-        echo "Missing Rclone type action ('copy' or 'move')."
+        echo "Missing Rclone type action ('copy' or 'move' or 'sync')."
         exit 1
     fi
     if [ "${RCLONE_DEST}" = "" ]
@@ -49,6 +49,11 @@ run() {
     then
         ${PROG_DEST_FILE} ${RCLONE_OP} ${CAM_FOLDER} ${RCLONE_DEST}:${REMOTE_FOLDER} --skip-links --log-file /var/log/rclone.log --log-level INFO --config ${PROG_CONF}
     fi
+    if [ "${RCLONE_OP}" = "sync" ]
+    then
+        ${PROG_DEST_FILE} ${RCLONE_OP} ${CAM_FOLDER} ${RCLONE_DEST}:${REMOTE_FOLDER}  --skip-links --log-file /var/log/rclone.log --log-level INFO --config ${PROG_CONF}
+    fi
+
 }
 
 install() {
@@ -70,7 +75,7 @@ install() {
 
     chmod ugo+rx ${PROG_TMP_FOLDER}/rclone_tool.sh
     cp ${PROG_TMP_FOLDER}/rclone_tool.sh ${PROG_BIN_FOLDER}/rclone_tool.sh
-    
+
     echo Run \'rclone_tool.sh config\' to configure Rclone.
 }
 
