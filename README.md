@@ -3,9 +3,14 @@ A small set of scripts useful to add specific functionalities to [Motioneyeos](h
 
 #### Table of Contents
 
-* [Tailscale on MotioneyeOS](#tailscale-on-motioneyeos)
-* [Rclone on MotioneyeOS and Motioneye DietPi](#rclone-on-motioneyeos-and-motioneye-dietpi)
-* [Motioneye and Tailscale on DietPi v7.8.2 (Raspberry Pi ARMv6 or ARMv7)](#motioneye-and-tailscale-on-dietpi-v782-raspberry-pi-armv6-or-armv7)
+- [motioneyeos\_ext](#motioneyeos_ext)
+      - [Table of Contents](#table-of-contents)
+  - [Tailscale on MotioneyeOS](#tailscale-on-motioneyeos)
+  - [Rclone on MotioneyeOS and Motioneye DietPi](#rclone-on-motioneyeos-and-motioneye-dietpi)
+      - [Parameters](#parameters)
+      - [Configuration files](#configuration-files)
+      - [Sample Cron configuration](#sample-cron-configuration)
+  - [Motioneye and Tailscale on DietPi v7.8.2 (Raspberry Pi ARMv6 or ARMv7)](#motioneye-and-tailscale-on-dietpi-v782-raspberry-pi-armv6-or-armv7)
 
 ## Tailscale on MotioneyeOS
 
@@ -99,9 +104,16 @@ Please visit the DietPi website to collect more info to install and configure yo
 * Switch to `root` user.
 * Run the command:
 
+To install **old** version of Motioneye (with Python 2):
 ```
-curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/main/src/motioneye_install.sh -o /tmp/motioneye_install.sh && bash /tmp/motioneye_install.sh
+curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/main/src/motioneye_py2_install.sh -o /tmp/motioneye_py2_install.sh && bash /tmp/motioneye_py2_install.sh
 ```
+
+To install **new** version of Motioneye (with Python 3):
+```
+curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/main/src/motioneye_py3_install.sh -o /tmp/motioneye_py3_install.sh && bash /tmp/motioneye_py3_install.sh
+```
+
 
 * Reboot your Raspberry Pi (with the command: `reboot`).
 * Connect via ssh to your Raspberry Pi where DietPi is installed (eg.: `ssh root@192.168.1.50`)
