@@ -90,8 +90,6 @@ Website:
 * [Motioneye](https://github.com/ccrisan/motioneye)
 * [DietPi](https://dietpi.com/)
 
-Script: [`motioneye_install.sh`](src/motioneye_install.sh)
-
 This script permit to install Motioneye and Tailscale on your Raspberry Pi with DietPi OS. The supported version are:
 
 * ARMv6 32-bit
@@ -105,11 +103,13 @@ Please visit the DietPi website to collect more info to install and configure yo
 * Run the command:
 
 To install **old** version of Motioneye (with Python 2):
+Script: [`motioneye_py2_install.sh`](src/motioneye_py2_install.sh)
 ```
 curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/update_motioneye_py3/src/motioneye_py2_install.sh -o /tmp/motioneye_py2_install.sh && bash /tmp/motioneye_py2_install.sh
 ```
 
 To install **new** version of Motioneye (with Python 3):
+Script: [`motioneye_py3_install.sh`](src/motioneye_py3_install.sh)
 ```
 curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/update_motioneye_py3/src/motioneye_py3_install.sh -o /tmp/motioneye_py3_install.sh && bash /tmp/motioneye_py3_install.sh
 ```
