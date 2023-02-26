@@ -2,11 +2,17 @@
 
 set -e -o pipefail
 
+MACHINE_TYPE=$(arch)||true
+
 echo ------------------------------------------------------------------------
 read -n 1 -r -s -p $'This procedure will install motioneye & tailscale. Press CTRL+C to break.\n'
 
 # Install Motioneye
 apt update
+if [ "${MACHINE_TYPE}" = "x86_64" ]
+then
+   sudo apt --no-install-recommends install ca-certificates curl python3 python3-dev libcurl4-openssl-dev gcc libssl-dev
+fi
 apt --no-install-recommends install ca-certificates curl python3 python3-distutils
 
 curl -sSfO 'https://bootstrap.pypa.io/get-pip.py'
