@@ -4,13 +4,12 @@ A small set of scripts useful to add specific functionalities to [Motioneyeos](h
 #### Table of Contents
 
 - [motioneyeos\_ext](#motioneyeos_ext)
-      - [Table of Contents](#table-of-contents)
   - [Tailscale on MotioneyeOS](#tailscale-on-motioneyeos)
   - [Rclone on MotioneyeOS and Motioneye DietPi](#rclone-on-motioneyeos-and-motioneye-dietpi)
       - [Parameters](#parameters)
       - [Configuration files](#configuration-files)
       - [Sample Cron configuration](#sample-cron-configuration)
-  - [Motioneye and Tailscale on DietPi (Raspberry Pi ARMv6 or ARMv7)](#motioneye-and-tailscale-on-dietpi-v782-raspberry-pi-armv6-or-armv7)
+  - [Motioneye and Tailscale on DietPi v8.x (Raspberry Pi ARMv6 or ARMv7)](#motioneye-and-tailscale-on-dietpi-v8x-raspberry-pi-armv6-or-armv7)
 
 ## Tailscale on MotioneyeOS
 
