@@ -1,21 +1,21 @@
 #!/bin/bash
-set -x
+# set -x
 set -e -o pipefail
 
+MACHINE_TYPE=$(arch)||true
 PROG_TMP_FOLDER="/tmp"
 
-PROG_URL="https://downloads.rclone.org/rclone-current-linux-arm.zip"
-PROG_TMP_FILE="${PROG_TMP_FOLDER}/rclone-current-linux-arm/rclone"
+PROG_URL="https://downloads.rclone.org/v1.61.1/rclone-v1.61.1-linux-arm.zip"
+PROG_TMP_FILE="${PROG_TMP_FOLDER}/rclone-v1.61.1-linux-arm/rclone"
 
-if [ "${G_HW_ARCH_NAME}" = "x86_64" ]
+if [ "${MACHINE_TYPE}" = "x86_64" ]
 then
-    PROG_URL="https://downloads.rclone.org/rclone-current-windows-amd64.zip"
-    PROG_TMP_FILE="${PROG_TMP_FOLDER}/rclone-current-windows-amd64/rclone"
+    PROG_URL="https://downloads.rclone.org/v1.61.1/rclone-v1.61.1-linux-amd64.zip"
+    PROG_TMP_FILE="${PROG_TMP_FOLDER}/rclone-v1.61.1-linux-amd64/rclone"
 fi
 
 PROG_BIN_FOLDER="/usr/bin"
 PROG_TMP_ZIP_FILE="${PROG_TMP_FOLDER}/rclone.zip"
-PROG_TMP_FILE="${PROG_TMP_FOLDER}/rclone-current-windows-amd64/rclone"
 PROG_PY_UNZIP_TOOL="${PROG_TMP_FOLDER}/unzip_rclone.py"
 
 PROG_DEST_FILE="${PROG_BIN_FOLDER}/rclone"
@@ -73,8 +73,8 @@ install() {
         echo "to reinstall."
         exit 1
     fi
-    mount -o remount,rw /
-    mount -o remount,rw /boot
+    mount -o remount,rw / || true
+    mount -o remount,rw /boot || true
     rm -f ${PROG_DEST_FILE}
     rm -f ${PROG_DEST_FILE}_tool.sh
     curl ${PROG_URL} -o ${PROG_TMP_ZIP_FILE}
