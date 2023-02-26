@@ -114,7 +114,7 @@ To install **new** version of Motioneye (with Python 3):
 curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/update_motioneye_py3/src/motioneye_py3_install.sh -o /tmp/motioneye_py3_install.sh && bash /tmp/motioneye_py3_install.sh
 ```
 
-to update: https://github.com/motioneye-project/motioneye/tree/dev
+To update: https://github.com/motioneye-project/motioneye/tree/dev#upgrade
 
 
 * Reboot your Raspberry Pi (with the command: `reboot`).
