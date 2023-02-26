@@ -10,7 +10,7 @@ A small set of scripts useful to add specific functionalities to [Motioneyeos](h
       - [Parameters](#parameters)
       - [Configuration files](#configuration-files)
       - [Sample Cron configuration](#sample-cron-configuration)
-  - [Motioneye and Tailscale on DietPi v7.8.2 (Raspberry Pi ARMv6 or ARMv7)](#motioneye-and-tailscale-on-dietpi-v782-raspberry-pi-armv6-or-armv7)
+  - [Motioneye and Tailscale on DietPi (Raspberry Pi ARMv6 or ARMv7)](#motioneye-and-tailscale-on-dietpi-v782-raspberry-pi-armv6-or-armv7)
 
 ## Tailscale on MotioneyeOS
 
