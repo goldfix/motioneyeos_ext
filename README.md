@@ -83,7 +83,7 @@ Two different configuration files  will be create after configuration:
 # EOF
 ```
 
-## Motioneye and Tailscale on DietPi v7.8.2 (Raspberry Pi ARMv6 or ARMv7)
+## Motioneye and Tailscale on DietPi v8.x (Raspberry Pi ARMv6 or ARMv7)
 
 Website:
 
