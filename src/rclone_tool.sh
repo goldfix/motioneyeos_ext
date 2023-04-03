@@ -5,13 +5,13 @@ set -e -o pipefail
 MACHINE_TYPE=$(arch)||true
 PROG_TMP_FOLDER="/tmp"
 
-PROG_URL="https://downloads.rclone.org/v1.61.1/rclone-v1.61.1-linux-arm.zip"
-PROG_TMP_FILE="${PROG_TMP_FOLDER}/rclone-v1.61.1-linux-arm/rclone"
+PROG_URL="https://downloads.rclone.org/v1.62.2/rclone-v1.62.2-linux-arm-v6.zip"
+PROG_TMP_FILE="${PROG_TMP_FOLDER}/rclone-v1.62.2-linux-arm-v6/rclone"
 
 if [ "${MACHINE_TYPE}" = "x86_64" ]
 then
-    PROG_URL="https://downloads.rclone.org/v1.61.1/rclone-v1.61.1-linux-amd64.zip"
-    PROG_TMP_FILE="${PROG_TMP_FOLDER}/rclone-v1.61.1-linux-amd64/rclone"
+    PROG_URL="https://downloads.rclone.org/v1.62.2/rclone-v1.62.2-linux-amd64.zip"
+    PROG_TMP_FILE="${PROG_TMP_FOLDER}/rclone-v1.62.2-linux-amd64/rclone"
 fi
 
 PROG_BIN_FOLDER="/usr/bin"
