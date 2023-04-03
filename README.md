@@ -4,6 +4,7 @@ A small set of scripts useful to add specific functionalities to [Motioneyeos](h
 #### Table of Contents
 
 - [motioneyeos\_ext](#motioneyeos_ext)
+      - [Table of Contents](#table-of-contents)
   - [Tailscale on MotioneyeOS](#tailscale-on-motioneyeos)
   - [Rclone on MotioneyeOS and Motioneye DietPi](#rclone-on-motioneyeos-and-motioneye-dietpi)
       - [Parameters](#parameters)
@@ -39,7 +40,7 @@ Script: [`rclone_tool.sh`](src/rclone_tool.sh)
 
 To install or update Rclone:
 
-* Install Motioneyeos or DietPi on your Raspberry Pi (follow this guide: [https://github.com/ccrisan/motioneyeos/wiki/Installation](https://github.com/ccrisan/motioneyeos/wiki/Installation)) or [https://dietpi.com/docs/install/](https://dietpi.com/docs/install/))
+* Install Motioneyeos or DietPi on your Raspberry Pi (follow this guide: [https://github.com/ccrisan/motioneyeos/wiki/Installation](https://github.com/ccrisan/motioneyeos/wiki/Installation) or [https://dietpi.com/docs/install/](https://dietpi.com/docs/install/))
 * Connect via ssh to your Raspberry Pi where you have installed Motioneyeos (or DietPi) (eg.: `ssh admin@192.168.1.50`)
 * Run the command:
 
