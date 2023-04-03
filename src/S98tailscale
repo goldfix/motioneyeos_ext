@@ -5,7 +5,7 @@ PROG="/usr/bin/tailscaled"
 PROG_TMP="/tmp/tailscale.tgz"
 PROG_TMP_FOLDER="/tmp/tailscale"
 FORCE_INIT="0"
-PROG_URL="https://pkgs.tailscale.com/stable/tailscale_1.18.1_arm.tgz"
+PROG_URL="https://pkgs.tailscale.com/stable/tailscale_1.38.3_arm.tgz"
 
 test -n "${OS_VERSION}" || source /etc/init.d/base
 
