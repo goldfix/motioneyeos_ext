@@ -29,7 +29,7 @@ install() {
         cd /tmp
         curl -L ${PROG_URL} --output ${PROG_TMP}
         tar xvf ${PROG_TMP}
-        mv /tmp/tailscale_1.18.1_arm ${PROG_TMP_FOLDER}
+        mv /tmp/tailscale_1.38.3_arm ${PROG_TMP_FOLDER}
         cp ${PROG_TMP_FOLDER}/tailscale /usr/bin/
         cp ${PROG_TMP_FOLDER}/tailscaled /usr/bin/
         rm -rf /tmp/tailscale*
