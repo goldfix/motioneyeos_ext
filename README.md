@@ -25,7 +25,7 @@ To install or update Tailscale:
 * Run the command:
 
 ```
-curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/main/src/rclone_tool.sh -o /tmp/rclone_tool.sh && bash /tmp/rclone_tool.sh install
+curl -L https://raw.githubusercontent.com/goldfix/motioneyeos_ext/main/src/S98tailscale -o /tmp/S98tailscale && bash /tmp/S98tailscale install
 ```
 
 * Reboot your Raspberry Pi (with the command: `reboot`).
