@@ -4,14 +4,15 @@ set -e -o pipefail
 
 MACHINE_TYPE=$(arch)||true
 PROG_TMP_FOLDER="/tmp"
+RCLONE_VER="1.63.1"
 
-PROG_URL="https://downloads.rclone.org/v1.62.2/rclone-v1.62.2-linux-arm-v6.zip"
-PROG_TMP_FILE="${PROG_TMP_FOLDER}/rclone-v1.62.2-linux-arm-v6/rclone"
+PROG_URL="https://downloads.rclone.org/v${RCLONE_VER}/rclone-v${RCLONE_VER}-linux-arm-v6.zip"
+PROG_TMP_FILE="${PROG_TMP_FOLDER}/rclone-v${RCLONE_VER}-linux-arm-v6/rclone"
 
 if [ "${MACHINE_TYPE}" = "x86_64" ]
 then
-    PROG_URL="https://downloads.rclone.org/v1.62.2/rclone-v1.62.2-linux-amd64.zip"
-    PROG_TMP_FILE="${PROG_TMP_FOLDER}/rclone-v1.62.2-linux-amd64/rclone"
+    PROG_URL="https://downloads.rclone.org/v${RCLONE_VER}/rclone-v${RCLONE_VER}-linux-amd64.zip"
+    PROG_TMP_FILE="${PROG_TMP_FOLDER}/rclone-v${RCLONE_VER}-linux-amd64/rclone"
 fi
 
 PROG_BIN_FOLDER="/usr/bin"
@@ -24,6 +25,7 @@ PROG_CONF="${PROG_BIN_FOLDER}/rclone.config"
 RCLONE_DEST=""
 RCLONE_OP=""
 
+rm -f ${PROG_PY_UNZIP_TOOL}
 cat << EOF > ${PROG_PY_UNZIP_TOOL}
 import zipfile
 
@@ -75,6 +77,8 @@ install() {
     fi
     mount -o remount,rw / || true
     mount -o remount,rw /boot || true
+
+    rm -f ${PROG_TMP_ZIP_FILE}
     rm -f ${PROG_DEST_FILE}
     rm -f ${PROG_DEST_FILE}_tool.sh
     curl ${PROG_URL} -o ${PROG_TMP_ZIP_FILE}
